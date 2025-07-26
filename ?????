@@ -1,0 +1,33 @@
+function generateCaption() {
+  const biz = document.getElementById("bizType").value.toLowerCase();
+  const vibe = document.getElementById("vibe").value;
+  let captions = [];
+
+  if (!biz) {
+    document.getElementById("result").innerText = "Please enter your business type.";
+    return;
+  }
+
+  if (vibe === "funny") {
+    captions = [
+      `Running my ${biz} biz like it's a Netflix series – binge-worthy 😎`,
+      `If my ${biz} hustle had a theme song, it'd be 🔥`,
+      `Built a ${biz} empire between memes and coffee ☕💼`
+    ];
+  } else if (vibe === "motivational") {
+    captions = [
+      `Every ${biz} starts with a dream. Yours is next.`,
+      `Building a ${biz} brand, one post at a time. Keep going.`,
+      `${biz[0].toUpperCase() + biz.slice(1)} isn’t just a biz — it’s a movement.`
+    ];
+  } else if (vibe === "sales") {
+    captions = [
+      `🔥 ${biz.toUpperCase()} SALE: Limited time only! #ShopNow`,
+      `Why wait? Grab your ${biz} deal before it’s gone ⏳`,
+      `Best ${biz} offer of the week! Don't miss out 💥`
+    ];
+  }
+
+  const random = Math.floor(Math.random() * captions.length);
+  document.getElementById("result").innerText = captions[random];
+}
